@@ -1,12 +1,23 @@
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alibaba <alibaba@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/25 16:26:41 by alibaba           #+#    #+#             */
+/*   Updated: 2024/05/25 18:06:07 by alibaba          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-size_t strlen(const char *s)
+#include "libft.h"
+
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
 	i = 0;
-
-	while (s[1])
+	while (s[i])
 		i++;
 	return (i);
 }
