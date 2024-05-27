@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alibaba <alibaba@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pbailly <pbailly@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 18:21:32 by alibaba           #+#    #+#             */
-/*   Updated: 2024/05/25 18:23:21 by alibaba          ###   ########.fr       */
+/*   Updated: 2024/05/27 14:16:49 by pbailly          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_tolower(int c)
 {

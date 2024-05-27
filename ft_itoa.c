@@ -1,54 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pbailly <pbailly@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/26 19:08:59 by pbailly           #+#    #+#             */
-/*   Updated: 2024/05/27 10:37:25 by pbailly          ###   ########.fr       */
+/*   Created: 2024/05/27 14:50:21 by pbailly           #+#    #+#             */
+/*   Updated: 2024/05/27 15:52:13 by pbailly          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	trim(char s, const char *set)
+int	count_size(long int n)
 {
 	size_t	i;
 
 	i = 0;
-	while (set[i])
+	if (n == 0)
+		return (1);
+	if (n < 0)
+		n *= -1;
+	while (n)
 	{
-		if (s == set[i])
-			return (1);
+		n /= 10;
 		i++;
 	}
-	return (0);
+	return (i);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_itoa(int n)
 {
-	size_t	i;
-	size_t	j;
-	size_t	x;
-	char	*str;
+	long int	nb;
+	size_t		count;
+	char		*str;
 
-	i = 0;
-	while (trim(s1[i], set))
-		i++;
-	j = ft_strlen(s1);
-	while (j > i && trim(s1[j - 1], set))
-		j--;
-	str = malloc(sizeof(char) * (j - i) + 1);
+	nb = n;
+	count = count_size(nb);
+	if (n < 0)
+		count++;
+	str = malloc(sizeof(char) * count + 1);
 	if (!str)
 		return (NULL);
-	x = 0;
-	while (i < j)
+	str[count] = '\0';
+	if (nb == 0)
+		(str[0] = '0');
+	if (nb < 0)
 	{
-		str[x] = s1[i];
-		x++;
-		i++;
+		nb *= -1;
+		str[0] = '-';
 	}
-	str[x] = '\0';
+	while (nb)
+	{
+		str[--count] = nb % 10 + '0';
+		nb /= 10;
+	}
 	return (str);
 }
